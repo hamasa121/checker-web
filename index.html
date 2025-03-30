@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://cdn.discordapp.com/icons/1238477197392744518/2272b4df6d220e7bd94029030ffefb85.webp?size=2048">
-    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1238477197392744518/2272b4df6d220e7bd94029030ffefb85.webp?size=2048">
     <title>Discord Token Checker - Black Team</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
-    <script type="module" src="./config.js"></script>
-    <script type="module" src="./analytics.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -131,7 +127,7 @@
                             <div id="progressBar" class="h-full bg-gradient-to-r from-primary to-blue-700 w-0 transition-all duration-300"></div>
                         </div>
                     </div>
-                    <div class="mt-6 grid grid-cols-3 gap-4">
+                    <div class="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
                         <div class="bg-dark bg-opacity-70 p-4 rounded-lg border border-primary/30">
                             <div class="text-sm text-gray-300">Valid</div>
                             <div id="validCount" class="text-3xl font-bold text-primary">0</div>
@@ -143,6 +139,10 @@
                         <div class="bg-dark bg-opacity-70 p-4 rounded-lg border border-red-500/30">
                             <div class="text-sm text-gray-300">Invalid</div>
                             <div id="invalidCount" class="text-3xl font-bold text-red-500">0</div>
+                        </div>
+                        <div class="bg-dark bg-opacity-70 p-4 rounded-lg border border-gray-400/30">
+                            <div class="text-sm text-gray-300">Total Checked</div>
+                            <div id="totalCount" class="text-3xl font-bold text-gray-300">0</div>
                         </div>
                     </div>
                     <div class="mt-6 flex justify-between">
@@ -175,77 +175,22 @@
             </div>
         </main>
 
-        <!-- Stats Section -->
-        <section class="py-12 animate-fade-in">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-primary to-blue-700 bg-clip-text text-transparent neon-text">Global Statistics</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <div class="glass-effect p-6 rounded-lg text-center">
-                        <i class="ri-eye-line text-3xl text-primary mb-2"></i>
-                        <h3 class="text-gray-300 mb-1">Total Visitors</h3>
-                        <p id="totalVisitors" class="text-4xl font-bold text-primary">0</p>
-                    </div>
-                    <div class="glass-effect p-6 rounded-lg text-center">
-                        <i class="ri-search-line text-3xl text-blue-400 mb-2"></i>
-                        <h3 class="text-gray-300 mb-1">Total Checks</h3>
-                        <p id="totalChecks" class="text-4xl font-bold text-blue-400">0</p>
-                    </div>
-                    <div class="glass-effect p-6 rounded-lg text-center">
-                        <i class="ri-checkbox-circle-line text-3xl text-green-500 mb-2"></i>
-                        <h3 class="text-gray-300 mb-1">Total Valid</h3>
-                        <p id="totalValid" class="text-4xl font-bold text-green-500">0</p>
-                    </div>
-                    <div class="glass-effect p-6 rounded-lg text-center">
-                        <i class="ri-close-circle-line text-3xl text-red-500 mb-2"></i>
-                        <h3 class="text-gray-300 mb-1">Total Invalid</h3>
-                        <p id="totalInvalid" class="text-4xl font-bold text-red-500">0</p>
-                    </div>
-                    <div class="glass-effect p-6 rounded-lg text-center">
-                        <i class="ri-vip-crown-line text-3xl text-yellow-500 mb-2"></i>
-                        <h3 class="text-gray-300 mb-1">Total Nitro</h3>
-                        <p id="totalNitro" class="text-4xl font-bold text-yellow-500">0</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- About Black Team Footer -->
         <footer class="border-t border-gray-700 py-12 mt-12 animate-fade-in">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-primary to-blue-700 bg-clip-text text-transparent neon-text">About Black Team</h2>
                 <p class="text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto">
                     We are <span class="text-primary font-bold">Black Team</span>—a legion of digital renegades forged in the shadows of the internet. Our mission is to dominate the unseen corners of the web with tools like this Token Checker, crafted with ruthless precision to expose truths and empower the fearless. Born from chaos, we thrive on pushing boundaries, breaking systems, and rewriting the rules of the game.<br><br>
-                    Our vision is a digital empire—a thriving Discord stronghold at <a href="https://discord.gg/black-team" class="text-primary hover:text-blue-400">discord.gg/black-team</a>, pulsing with thousands of rebels, coders, and visionaries. We're building a community where innovation ignites daily, where every line of code is a weapon, and every member is a warrior in our uprising. This isn't just a tool—it's a declaration of war against mediocrity.<br><br>
-                    Join us. Step into the dark. Become part of the force that's reshaping the future—one hack at a time.
+                    Our vision is a digital empire—a thriving Discord stronghold at <a href="https://discord.gg/black-team" class="text-primary hover:text-blue-400">discord.gg/black-team</a>, pulsing with thousands of rebels, coders, and visionaries. We’re building a community where innovation ignites daily, where every line of code is a weapon, and every member is a warrior in our uprising. This isn’t just a tool—it’s a declaration of war against mediocrity.<br><br>
+                    Join us. Step into the dark. Become part of the force that’s reshaping the future—one hack at a time.
                 </p>
                 <div class="mt-8 text-gray-400">© 2025 Black Team. All rights reserved.</div>
             </div>
         </footer>
     </div>
 
-    <script type="module">
-        import { initAnalytics, notifyDiscordNewVisitor, incrementCounter, getAnalytics, STORAGE_KEYS } from './analytics.js';
-
-        document.addEventListener("DOMContentLoaded", async () => {
-            // Initialize analytics
-            initAnalytics();
-            
-            // Notify Discord about new visitor
-            await notifyDiscordNewVisitor();
-
-            // Update statistics display
-            function updateStatsDisplay() {
-                const stats = getAnalytics();
-                document.getElementById('totalVisitors').textContent = stats.TOTAL_VISITORS;
-                document.getElementById('totalChecks').textContent = stats.TOTAL_CHECKS;
-                document.getElementById('totalValid').textContent = stats.TOTAL_VALID;
-                document.getElementById('totalInvalid').textContent = stats.TOTAL_INVALID;
-                document.getElementById('totalNitro').textContent = stats.TOTAL_NITRO;
-            }
-
-            // Update stats display initially
-            updateStatsDisplay();
-
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
             // Matrix Rain Background
             const canvas = document.getElementById("matrixRain");
             const ctx = canvas.getContext("2d");
@@ -290,6 +235,7 @@
             const validCountEl = document.getElementById("validCount");
             const nitroCountEl = document.getElementById("nitroCount");
             const invalidCountEl = document.getElementById("invalidCount");
+            const totalCountEl = document.getElementById("totalCount");
             const results = document.getElementById("results");
 
             let isProcessing = false;
@@ -297,6 +243,7 @@
             let validCount = 0;
             let invalidCount = 0;
             let nitroCount = 0;
+            let totalCount = 0;
             let currentIndex = 0;
             let validTokens = [];
 
@@ -311,6 +258,8 @@
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     tokens = e.target.result.split("\n").filter(token => token.trim() !== "");
+                    totalCount = tokens.length; // Initial total is the number of lines loaded
+                    totalCountEl.textContent = totalCount;
                     startBtn.disabled = false;
                     showResult(`File loaded: ${file.name} (${tokens.length} tokens)`, "info");
                 };
@@ -338,14 +287,13 @@
                     const guilds = guildRes.ok ? await guildRes.json() : [];
                     const connections = connRes.ok ? await connRes.json() : [];
 
-                    // Enhanced Nitro Detection
                     let nitro = "No Nitro";
                     if (userData.premium_type) {
                         switch (userData.premium_type) {
                             case 1: nitro = "Nitro Classic"; break;
                             case 2: nitro = "Nitro Boost"; break;
-                            case 3: nitro = "Nitro Gaming"; break; // Hypothetical, Discord doesn't use this yet, but future-proofed
-                            default: nitro = `Nitro (Type ${userData.premium_type})`; // Catch any unknown types
+                            case 3: nitro = "Nitro Gaming"; break;
+                            default: nitro = `Nitro (Type ${userData.premium_type})`;
                         }
                     }
 
@@ -393,6 +341,7 @@
                 validCountEl.textContent = validCount;
                 nitroCountEl.textContent = nitroCount;
                 invalidCountEl.textContent = invalidCount;
+                totalCountEl.textContent = totalCount;
                 statsChart.setOption({ series: [{ data: [{ value: validCount, name: "Valid" }, { value: invalidCount, name: "Invalid" }] }] });
             }
 
@@ -404,10 +353,6 @@
 
             startBtn.addEventListener("click", async () => {
                 if (tokens.length === 0) return showResult("No tokens to check", "error");
-                
-                // Increment total checks counter
-                incrementCounter(STORAGE_KEYS.TOTAL_CHECKS);
-                
                 isProcessing = true;
                 startBtn.disabled = true;
                 stopBtn.disabled = false;
@@ -415,15 +360,19 @@
                 validCount = 0;
                 invalidCount = 0;
                 nitroCount = 0;
-                validTokens = [];
+                totalCount = tokens.length; // Reset total to file length
                 currentIndex = 0;
+                validTokens = [];
                 updateStats();
                 updateProgress();
 
                 for (; currentIndex < tokens.length; currentIndex++) {
                     if (!isProcessing) break;
                     const token = tokens[currentIndex].trim();
-                    if (!token) continue;
+                    if (!token) {
+                        showResult(`[SKIPPED] Empty line at index ${currentIndex}`, "info");
+                        continue;
+                    }
                     const result = await checkDiscordToken(token);
                     if (result.valid) {
                         validCount++;
@@ -453,16 +402,8 @@
                 }
 
                 if (isProcessing) {
-                    showResult(`Check completed: ${validCount} valid, ${invalidCount} invalid`, "info");
+                    showResult(`Check completed: ${validCount} valid, ${invalidCount} invalid, ${totalCount} total`, "info");
                     exportBtn.disabled = false;
-                    
-                    // Update global counters
-                    incrementCounter(STORAGE_KEYS.TOTAL_VALID, validCount);
-                    incrementCounter(STORAGE_KEYS.TOTAL_INVALID, invalidCount);
-                    incrementCounter(STORAGE_KEYS.TOTAL_NITRO, nitroCount);
-                    
-                    // Update stats display
-                    updateStatsDisplay();
                 }
                 isProcessing = false;
                 startBtn.disabled = false;
@@ -474,7 +415,7 @@
                 startBtn.disabled = false;
                 stopBtn.disabled = true;
                 exportBtn.disabled = validTokens.length === 0;
-                showResult("Check stopped", "info");
+                showResult(`Check stopped: ${validCount} valid, ${invalidCount} invalid, ${currentIndex} of ${totalCount} checked`, "info");
             });
 
             exportBtn.addEventListener("click", () => {
